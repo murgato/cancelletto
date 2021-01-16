@@ -12,7 +12,7 @@ import {
 
 import routes from "../../routes";
 
-import { Link } from 'react-router-dom';
+import { NavLink } from "react-router-dom";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
@@ -21,16 +21,22 @@ function SideBar() {
 
     return (
         <>
-            <ProSidebar className='sidebar' >
-                <Menu popperArrow={true} iconShape="circle">
+            <ProSidebar className='sidebar'
+                collapsed={true}>
+                <Menu popperArrow={true} 
+                iconShape="circle"
+                >
                     <SidebarHeader>
                         <h2 className='title-sidebar' > Canceletto</h2>
+                        <FontAwesomeIcon icon={"Corgs"} />
                     </SidebarHeader>
                     <SidebarContent>
                         {routes.map((route) => {
                             return (
                                 <>{!route.collapse ?
-                                    <MenuItem icon={<FontAwesomeIcon icon="fas corgs" />} >{route.label}
+                                    <MenuItem icon={<FontAwesomeIcon icon={"Corgs"} />} >
+
+                                        {route.label}
 
                                     </MenuItem>
                                     :
