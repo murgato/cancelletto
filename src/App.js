@@ -1,12 +1,23 @@
 import 'react-pro-sidebar/dist/css/styles.css';
-import SideBar from './components/Sidebar/index.jsx'
 import { hot } from 'react-hot-loader/root';
 import '../src/Styles.css'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import Navbar from './components/Sidebar/Navbar/index'
+import { routes } from "./routes";
 
 function App() {
     return (
         <>
-            <SideBar />
+            <Router >
+
+                <Navbar />
+                <Switch>
+                    {routes.map((item) => {
+                        return (<Route path={item.path} exact component={item.component} />)
+                    })}
+
+                </Switch>
+            </Router >
         </>
     )
 }
